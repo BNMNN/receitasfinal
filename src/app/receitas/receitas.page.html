@@ -1,0 +1,51 @@
+<app-header titulo="Receitas"></app-header>
+
+<ion-content class="ion-padding">
+  
+  <ion-card *ngFor="let receita of minhasReceitas" (click)="setOpen(true, receita.id)">
+    <ion-img [src]="receita.img"></ion-img> 
+    <ion-card-header>
+      <ion-card-title >{{receita.nomeReceita}}</ion-card-title>
+    </ion-card-header>
+   <!--  <ion-card-content>
+      Descrição da Receita 1. Adicione detalhes sobre a preparação e os ingredientes aqui.
+    </ion-card-content> -->    
+  </ion-card>
+
+  <ion-fab horizontal="end" vertical="bottom">
+    <ion-fab-button routerLink="/cadastro-receita">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  
+   
+    <ion-modal [isOpen]="isModalOpen">
+      <ng-template>
+        <app-header titulo="Receitas"></app-header>
+        <ion-content class="ion-padding">
+          <ion-card>
+            <ion-img [src]="receita.img"></ion-img> 
+            <ion-card-header>
+              <ion-card-title >{{receita.nomeReceita}}</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <h2>Ingredientes:</h2>
+              <p>{{receita.ingredientes}}</p>
+
+              <h2>Modo de Preparo:</h2>
+              <p>{{receita.modoPre}}</p>
+            </ion-card-content>    
+          </ion-card>
+
+
+        <div>
+          <ion-button [routerLink]="['/update-receita',receita.id]" (click)="modal_fim()">Editar</ion-button>
+          <ion-button (click)="apaguei(receita.id)">Excluir</ion-button>
+          <ion-button (click)="setOpen(false, 0)">Voltar</ion-button>
+        </div>
+
+        </ion-content>
+      </ng-template>
+    </ion-modal>
+</ion-content>

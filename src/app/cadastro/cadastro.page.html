@@ -1,0 +1,27 @@
+<app-header titulo="Cadastro"></app-header>
+
+<ion-content class="ion-padding">
+
+  <form (ngSubmit)="register()">
+    <p>Junte-se a nós e comece a explorar um mundo de receitas deliciosas, dicas de cozinha e muito mais!</p>
+    <ion-item>
+      <ion-label position="floating">Nome</ion-label>
+      <ion-input type="text" [(ngModel)]="name" name="name" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input type="email" [(ngModel)]="email" name="email" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Senha</ion-label>
+      <ion-input type="password" [(ngModel)]="password" name="password" required></ion-input>
+    </ion-item>
+
+    <ion-button expand="full" type="submit">Cadastrar</ion-button>
+    <p>Você já possui uma conta? <a routerLink="/home">Faça login aqui</a>.</p>
+  </form>
+
+
+</ion-content>
